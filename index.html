@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diaa Obaid · بورتفوليو</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tahoma', 'Poppins', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f7f9fc 0%, #e9eef5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            max-width: 1000px;
+            width: 100%;
+            border-radius: 48px;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 30px 60px rgba(0, 20, 30, 0.15), 
+                        0 12px 30px rgba(0, 0, 0, 0.05),
+                        inset 0 1px 4px rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s;
+        }
+
+        /* header / profile */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.8rem;
+            border-bottom: 2px dashed rgba(0, 105, 148, 0.2);
+            padding-bottom: 2rem;
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, #1e3c5e, #2b5f7a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 30px -8px rgba(0, 60, 80, 0.3);
+            border: 4px solid white;
+            transition: transform 0.2s;
+        }
+
+        .avatar i {
+            font-size: 5.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+
+        .avatar:hover {
+            transform: scale(1.02);
+        }
+
+        .title-section h1 {
+            font-size: 3.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0a2c3b;
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #0a6b8a;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 12px rgba(0, 110, 140, 0.25);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .subhead {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 0.6rem;
+            font-size: 1.1rem;
+            color: #2c4e63;
+        }
+
+        .subhead i {
+            color: #0a6b8a;
+            width: 22px;
+            text-align: center;
+        }
+
+        /* grid layout */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2rem;
+            margin-bottom: 2.2rem;
+        }
+
+        @media (max-width: 750px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            .profile-header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .title-section h1 {
+                font-size: 2.6rem;
+                justify-content: center;
+            }
+
+            .subhead {
+                justify-content: center;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 36px;
+            }
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0a3c4f;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.2px;
+            border-right: 4px solid #0a8bb0;
+            padding-right: 18px;
+        }
+
+        .section-title i {
+            color: #0a8bb0;
+            font-size: 1.5rem;
+        }
+
+        /* contact list */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 1.05rem;
+            padding: 0.6rem 1rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 28px;
+            transition: 0.2s;
+            border: 1px solid rgba(10, 139, 176, 0.1);
+            color: #1b3f51;
+        }
+
+        .contact-list li i {
+            width: 32px;
+            height: 32px;
+            background: #e0f0f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #0a6b8a;
+            font-size: 1.1rem;
+        }
+
+        .contact-list li:hover {
+            background: white;
+            border-color: #0a8bb0;
+            transform: translateX(-4px);
+            box-shadow: 0 8px 16px rgba(0, 120, 150, 0.08);
+        }
+
+        .contact-list li a {
+            text-decoration: none;
+            color: #1b3f51;
+            font-weight: 500;
+        }
+
+        .contact-list li a:hover {
+            color: #0a6b8a;
+        }
+
+        /* skills chips */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 12px;
+            margin-bottom: 2rem;
+        }
+
+        .skill-chip {
+            background: white;
+            padding: 0.65rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #124257;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(10, 120, 150, 0.15);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-chip i {
+            color: #0a8bb0;
+            font-size: 0.9rem;
+        }
+
+        .skill-chip:hover {
+            background: #0a6b8a;
+            color: white;
+            border-color: #0a6b8a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(10, 100, 130, 0.2);
+        }
+
+        .skill-chip:hover i {
+            color: white;
+        }
+
+        /* stats / portofolio highlight */
+        .stats-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 28px;
+            padding: 1.2rem 1.2rem;
+            flex: 1 1 130px;
+            text-align: center;
+            border: 1px solid rgba(10, 139, 176, 0.2);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0a3c4f;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #346d82;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* portfolio / projects */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 28px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border: 1px solid rgba(10, 139, 176, 0.15);
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(0, 20, 20, 0.02);
+        }
+
+        .project-item:hover {
+            background: white;
+            border-color: #0a8bb0;
+            box-shadow: 0 14px 28px -10px rgba(0, 110, 140, 0.2);
+            transform: scale(1.005);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: #e0f0f7;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #0a6b8a;
+        }
+
+        .project-details h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0a2c3b;
+            margin-bottom: 0.2rem;
+        }
+
+        .project-details p {
+            font-size: 0.9rem;
+            color: #48768b;
+            line-height: 1.4;
+        }
+
+        .project-tag {
+            margin-right: auto;
+            background: #0a8bb0;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 550px) {
+            .project-item {
+                flex-wrap: wrap;
+            }
+            .project-tag {
+                margin-right: 0;
+                margin-top: 8px;
+            }
+        }
+
+        /* social row */
+        .social-row {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            background: white;
+            color: #0a4b63;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(10, 139, 176, 0.25);
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+            color: #0a6b8a;
+        }
+
+        .social-link:hover {
+            background: #0a6b8a;
+            color: white;
+            border-color: #0a6b8a;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 24px -10px rgba(10, 100, 130, 0.3);
+        }
+
+        .social-link:hover i {
+            color: white;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.8rem;
+            color: #4c798b;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+        }
+
+        /* micro interaction */
+        .avatar i {
+            transition: 0.2s;
+        }
+        .avatar:hover i {
+            transform: rotate(5deg) scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- رأس الملف الشخصي -->
+        <div class="profile-header">
+            <div class="avatar">
+                <i class="fas fa-user-astronaut"></i> <!-- رمز تعبيري للملف الشخصي -->
+            </div>
+            <div class="title-section">
+                <h1>
+                    Diaa Obaid
+                    <span class="badge"><i class="fas fa-code" style="margin-left: 5px;"></i> مطوّر واجهات</span>
+                </h1>
+                <div class="subhead">
+                    <span><i class="fas fa-map-pin"></i> عمّان، الأردن</span>
+                    <span><i class="fas fa-briefcase"></i> خبرة 4+ سنوات</span>
+                    <span><i class="fas fa-globe"></i> عربي / إنجليزي</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- الشبكة الرئيسية: معلومات تواصل + مهارات -->
+        <div class="info-grid">
+            <!-- بطاقة معلومات الاتصال -->
+            <div>
+                <div class="section-title">
+                    <i class="fas fa-address-card"></i> معلومات التواصل
+                </div>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:diaa.obaid@example.com">diaa.obaid@example.com</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+962791234567">+962 79 123 4567</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-linkedin-in"></i>
+                        <a href="#">linkedin.com/in/diaaobaid</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-github"></i>
+                        <a href="#">github.com/diaaobaid</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- المهارات -->
+            <div>
+                <div class="section-title">
+                    <i class="fas fa-cog"></i> المهارات التقنية
+                </div>
+                <div class="skills-container">
+                    <span class="skill-chip"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="skill-chip"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="skill-chip"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="skill-chip"><i class="fab fa-react"></i> React</span>
+                    <span class="skill-chip"><i class="fab fa-node"></i> Node.js</span>
+                    <span class="skill-chip"><i class="fas fa-database"></i> MongoDB</span>
+                    <span class="skill-chip"><i class="fas fa-mobile-alt"></i> تصميم متجاوب</span>
+                    <span class="skill-chip"><i class="fas fa-pencil-ruler"></i> UI/UX</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- إحصائيات صغيرة / إنجازات -->
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-number">24+</div>
+                <div class="stat-label">مشروع مكتمل</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">سنوات خبرة</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">شهادات مهنية</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">عميل سعيد</div>
+            </div>
+        </div>
+
+        <!-- أعمال مختارة / بورتفوليو -->
+        <div class="section-title" style="margin-top: 1rem;">
+            <i class="fas fa-folder-open"></i> أعمال مختارة
+        </div>
+        <div class="project-list">
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-store"></i></div>
+                <div class="project-details">
+                    <h4>متجر إلكتروني متكامل</h4>
+                    <p>واجهة مستخدم تفاعلية مع سلة مشتريات ودعم الدفع الإلكتروني.</p>
+                </div>
+                <div class="project-tag">React · Node</div>
+            </div>
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="project-details">
+                    <h4>لوحة تحكم تحليلية</h4>
+                    <p>عرض بيانات لحظية مع رسوم بيانية متقدمة وتصفية ذكية.</p>
+                </div>
+                <div class="project-tag">D3.js · API</div>
+            </div>
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-palette"></i></div>
+                <div class="project-details">
+                    <h4>منصة تصميم تعاوني</h4>
+                    <p>أدوات سحب وإفلات لإنشاء تصاميم ويب ومشاركتها مباشرة.</p>
+                </div>
+                <div class="project-tag">UI/UX · Vue</div>
+            </div>
+        </div>
+
+        <!-- روابط تواصل اجتماعي إضافية -->
+        <div class="social-row">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="social-link"><i class="fab fa-behance"></i> Behance</a>
+            <a href="#" class="social-link"><i class="fas fa-envelope"></i> راسلني</a>
+        </div>
+
+        <div class="footer-note">
+            <i class="fas fa-code"></i> Diaa Obaid · بورتفوليو شخصي · 2025
+        </div>
+    </div>
+</body>
+</html>
